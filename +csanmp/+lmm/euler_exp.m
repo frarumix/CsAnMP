@@ -1,5 +1,5 @@
 function [nodes, solution] = euler_exp(ode, domain, initialValue,step)
-%EULER_EXP Explicit Euler method for initial value problems.
+% EULER_EXP Explicit Euler method for initial value problems.
 %   The explicit Euler method is given by the formula y_n+1 = y_n + h*f_n.
 %   It's a first-order explicit method.
 %
