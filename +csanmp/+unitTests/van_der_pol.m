@@ -17,7 +17,8 @@ ode = @(t,y) [y(2); ((1 - y(1)^2)*y(2) - y(1))/epsilon];
 domain = [0, 20];
 initialValue = [2; -2/3];
 name = "Van der Pol with \epsilon = " + num2str(epsilon);
+nameLaTeX = "Van der Pol with $\epsilon =$ " + num2str(epsilon);
 
-ivp = IVP(ode,domain,initialValue,name);
+ivp = IVP(ode,domain,initialValue,name,nameLaTeX);
 
 end

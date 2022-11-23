@@ -8,7 +8,8 @@ function ivp = brussellator(A,B)
 %   y2(0) = 3.
 
 arguments
-    A, B (1,1) {mustBeReal}
+    A (1,1) {mustBeReal} = 1
+    B (1,1) {mustBeReal} = 3
 end
 
 import csanmp.IVP

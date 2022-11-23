@@ -1,7 +1,6 @@
-function [nodes, solution] = pcEulerFS(ode, domain, initialValue, step, ...
-    iterations)
+function [nodes,solution] = FSPC1(ode,domain,initialValue,step, iterations)
 % PCEULERFS Predictor-corrector method based on the explicit/implicit Euler
-% couple.
+% couple, with fixed step.
 %
 % Input:
 %   ode             Function f(t,y(t)) from the problem.
@@ -19,8 +18,8 @@ arguments (Input)
     ode function_handle
     domain (1,2) {mustBeReal}
     initialValue (1,:) {mustBeReal}
-    step (1,1) {mustBeReal}
-    iterations (1,1) {mustBeInteger}
+    step (1,1) {mustBeReal,mustBePositive}
+    iterations (1,1) {mustBeInteger,mustBePositive} = 2
 end
 
 arguments (Output)
@@ -34,11 +33,11 @@ solution(1,:) = initialValue;
 
 for i = 2:length(nodes)
     % Predictor: explicit Euler
-    predictor = solution(i-1,:) + step*ode(nodes(i-1), solution(i-1,:))';
+    predictor = solution(i-1,:) + step*ode(nodes(i-1),solution(i-1,:))';
     
     % Corrector: implicit Euler
     for j = 1:iterations
-        corrector = solution(i-1,:) + step*ode(nodes(i), predictor)';
+        corrector = solution(i-1,:) + step*ode(nodes(i),predictor)';
         predictor = corrector;
     end
     solution(i,:) = corrector;
