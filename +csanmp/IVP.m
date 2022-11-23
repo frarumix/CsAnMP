@@ -14,8 +14,8 @@ classdef IVP
 
             arguments
                 ode function_handle
-                domain (1, 2) {mustBeReal}
-                initialValue (:, 1) {mustBeReal}
+                domain (1,2) {mustBeReal}
+                initialValue (:,1) {mustBeReal}
                 name string = "~"
                 solution.analytical function_handle = @() NaN
                 solution.numerical (:,1) {mustBeReal} = NaN

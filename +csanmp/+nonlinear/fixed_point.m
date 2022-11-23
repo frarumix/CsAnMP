@@ -1,5 +1,5 @@
 function [fixedPoint, iterations] = fixed_point(func, start, maxIter, tol)
-%FIXED_POINT Fixed-point iterations.
+% FIXED_POINT Fixed-point iterations.
 %   Solve a nonlinear equation f(x) = 0 by finding the fixed point of a
 %   funcion g such that f(a) = 0 iff g(a) = a. The fixed point can be
 %   approximated by iterating x_n+1 = g(x_n). A sufficient condition for
