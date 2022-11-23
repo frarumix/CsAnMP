@@ -4,7 +4,7 @@ function [nodes,solution] = euler_exp(ode,domain,initialValue,step)
 %   It's a first-order explicit method.
 %
 % Input:
-%   ode             Function f(t,y(t)) from the problem.
+%   ode             Function f(t,y(t)) that defines the problem.
 %   domain          Domain of the t variable.
 %   initialValue    Initial value y_0 = y(x_0).
 %   step            Constant step h.

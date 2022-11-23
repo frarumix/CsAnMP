@@ -1,1 +1,3 @@
-- [ ] Metodi "compute solution" per IVP, con metodi appropriati.
+- [x] Metodi "compute solution" per IVP, con metodi appropriati.
+- [ ] Serve floor per cifre decimali? O ceiling?
+- [ ] Magia composizione latex

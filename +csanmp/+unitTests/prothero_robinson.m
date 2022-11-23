@@ -14,10 +14,10 @@ import csanmp.IVP
 ode = @(t,y) lambda*(y - sin(t)) + cos(t);
 domain = [0, 2*pi];
 initialValue = 0;
-name = "Prothero-Robinson with \lambda = " + num2str(lambda);
-name = "Prothero-Robinson with $\lambda =$ " + num2str(lambda);
+name = ['Prothero-Robinson with lambda = ' num2str(lambda)];
+nameLaTeX = ['Prothero-Robinson with $\lambda =' num2str(lambda) '$'];
 solution = @(t) sin(t);
 
-ivp = IVP(ode,domain,initialValue,name,"analytical",solution);
+ivp = IVP(ode,domain,initialValue,name,nameLaTeX,"analytical",solution);
 
 end

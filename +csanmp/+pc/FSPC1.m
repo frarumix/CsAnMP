@@ -7,10 +7,10 @@ function [nodes,solution] = FSPC1(ode,domain,initialValue,step, iterations)
 %   domain          Domain of the t variable.
 %   initialValue    Initial value row vector (y1(0), y2(0), ..., yn(0)).
 %   step            Constant step h.
-%   iterations      Number of corrector iterations.
+%   iterations      How many corrector iterations.
 %
 % Output:
-%   nodes           Grid nodes (column) vector
+%   nodes           Grid nodes column.
 %   solution        Approximate solution matrix, where each column
 %                   corresponds to a solution component.
 
@@ -18,10 +18,9 @@ arguments (Input)
     ode function_handle
     domain (1,2) {mustBeReal}
     initialValue (1,:) {mustBeReal}
-    step (1,1) {mustBeReal,mustBePositive}
-    iterations (1,1) {mustBeInteger,mustBePositive} = 2
+    step (1,1) {mustBePositive}
+    iterations (1,1) {mustBeInteger,mustBeNonnegative} = 2
 end
-
 arguments (Output)
     nodes (:,1) {mustBeReal}
     solution (:,:) {mustBeReal}

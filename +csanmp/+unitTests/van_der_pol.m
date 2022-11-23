@@ -14,11 +14,11 @@ end
 import csanmp.IVP
 
 ode = @(t,y) [y(2); ((1 - y(1)^2)*y(2) - y(1))/epsilon];
-domain = [0, 20];
+domain = [0, 2];
 initialValue = [2; -2/3];
-name = "Van der Pol with \epsilon = " + num2str(epsilon);
-nameLaTeX = "Van der Pol with $\epsilon =$ " + num2str(epsilon);
+name = ['Van der Pol with epsilon = ' num2str(epsilon)];
+nameLaTeX = ['Van der Pol with $\epsilon =' num2str(epsilon) '$'];
 
-ivp = IVP(ode,domain,initialValue,name,nameLaTeX);
+ivp = IVP(ode,domain,initialValue,name,nameLaTeX,"numerical");
 
 end
