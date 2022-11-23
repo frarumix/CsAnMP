@@ -2,7 +2,7 @@ function ivp = snl()
 % SNL Create an IVP class object corresponding to the following initial
 % value problem:
 %
-%   y'(t) = 4*t.*sqrt(y),    t in [0, 1]
+%   y'(t) = 4*t*sqrt(y),    t in [0, 1]
 %   y(0) = 1.
 
 import csanmp.IVP
