@@ -43,7 +43,7 @@ classdef PCUnitTest < handle
 
             arguments (Input)
                 obj
-                tol (1,1) {mustBePositive}
+                tol (1,1) {mustBePositive} = 1e-4
                 step (1,1) {mustBePositive} = 0.01*tol
                 iterations (1,1) {mustBeInteger,mustBeNonnegative} = 2
                 facmi (1,1) {mustBeReal} = 0.5
@@ -62,7 +62,7 @@ classdef PCUnitTest < handle
             [nodes,solution,accepted,rejected,fEvals] = obj.method(...
                 obj.ivp.ode,obj.ivp.domain,obj.ivp.initialValue,tol,...
                 step,iterations,facmi,facma);
-            obj.ivp.computeSolution();
+            obj.ivp = obj.ivp.computeSolution();
             digits = -log10(norm(obj.ivp.numericalSolution - solution(...
                 end,:)',"inf"));
         end
@@ -72,17 +72,22 @@ classdef PCUnitTest < handle
             % with fixed parameters tol=1e-4, step=0.01*tol, iterations=2,
             % facmi=0.5, facma=1.5 (see csanmp.pc.PCUnitTest.apply).
             
-            figure();
+            figure()
+            hold on
             [nodes, solution] = obj.apply(1e-4);
-            labels = cell(length(obj.ivp.initialValue),1);
-            for i = 1:length(obj.ivp.initialValue)
-                plot(nodes,solution);
-                labels{i} = ['$y_' num2str(i) '$'];
-            end            
-            legend(labels,Location='best')
+            if length(obj.ivp.initialValue) == 1
+                plot(nodes,solution)
+            else
+                for i = 1:length(obj.ivp.initialValue)
+                    y_i = "$y_" + num2str(i) + "$";
+                    plot(nodes,solution(:,i),'DisplayName',y_i);
+                end
+                legend(Location='best')
+            end
             title(obj.ivp.nameLaTeX)
             xlabel('$t$')
             ylabel('$y$')
+            hold off
         end
     end
 end

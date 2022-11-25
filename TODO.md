@@ -1,3 +1,5 @@
-- [x] Metodi "compute solution" per IVP, con metodi appropriati.
 - [ ] Serve floor per cifre decimali? O ceiling?
-- [ ] Magia composizione latex
+- [ ] Phase plane plot
+- [ ] odeset
+- [ ] string revolution
+- [ ] defaults in docs

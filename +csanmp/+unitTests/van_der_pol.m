@@ -19,6 +19,6 @@ initialValue = [2; -2/3];
 name = ['Van der Pol with epsilon = ' num2str(epsilon)];
 nameLaTeX = ['Van der Pol with $\epsilon =' num2str(epsilon) '$'];
 
-ivp = IVP(ode,domain,initialValue,name,nameLaTeX,"numerical");
+ivp = IVP(ode,domain,initialValue,name,nameLaTeX);
 
 end

@@ -25,7 +25,7 @@ arguments (Input)
     ode function_handle
     domain (1,2) {mustBeReal}
     initialValue (1,:) {mustBeReal}
-    tol (1,1) {mustBePositive}
+    tol (1,1) {mustBePositive} = 1e-4
     step (1,1) {mustBePositive} = 0.01*tol
     iterations (1,1) {mustBeInteger,mustBeNonnegative} = 2
     facmi (1,1) {mustBeReal} = 0.5
